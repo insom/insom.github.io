@@ -1,0 +1,14 @@
+{{ partial "head.html" . }}
+<main class="posts">
+  <article class="post">
+    {{ range (.Paginator 30).Pages }}
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ end }}
+
+    {{ if .Paginator.HasNext }}
+    <a href="{{ .Paginator.Next.URL }}">Next</a>
+    {{ end }}
+
+  </article>
+</main>
+{{ partial "foot.html" . }}

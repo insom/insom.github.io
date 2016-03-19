@@ -1,0 +1,9 @@
+{{ partial "head.html" . }}
+<main>
+<article class="project">
+  <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
+  {{ .Content }}
+  <p class="small gray">Last updated: <time datetime="{{ .Date.Format "2006-01-30" }}">{{ .Date.Format "Jan 01, 2006" }}</time></p>
+</article>
+</main>
+{{ partial "foot.html" . }}
