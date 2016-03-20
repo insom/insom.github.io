@@ -1,8 +1,27 @@
 {{ partial "head.html" . }}
+<p>
+    Welcome to my web page. I have others, but this is probably the one that
+    you're looking for. In case it isn't, here's a short list of other places
+    I exist on the web:
+</p>
+<ul style="margin-bottom: 5em">
+    <li><a href="https://www.insom.me.uk/">insom.me.uk</a> &ndash; my previous blog, 2010-2015. </li>
+    <li><a href="https://github.com/insom">github.com/insom</a> &ndash; my GitHub, 2010-</li>
+    <li><a href="https://lanyrd.com/insom">lanyrd.com/insom</a> &ndash; my Lanyrd, 2011-</li>
+    <li><a href="https://uk.linkedin.com/in/aaronwbrady">linkedin.com/in/aaronwbrady</a> &ndash; my LinkedIn</li>
+    <li><a href="https://keybase.io/insom">keybase.io/insom</a> &ndash; my Keybase (for GPG keys, etc.)</li>
+    <li><a href="https://twitter.com/insom">twitter.com/insom</a> &ndash; my Twitter, 2007-2016</li>
+    <li><a href="http://tilde.town/~insom">tilde.town/~insom</a> &ndash; my personal journal (Opinions my own), 2014-.</li>
+</ul>
+<h2>Projects</h2>
 <main class="posts">
   <article class="post">
     {{ range (.Paginator 30).Pages }}
-    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <blockquote>
+    <h3 style="display: inline"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    &mdash;
+    {{ .Params.synopsis }}
+    </blockquote>
     {{ end }}
 
     {{ if .Paginator.HasNext }}
