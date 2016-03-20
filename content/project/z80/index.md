@@ -2,6 +2,7 @@
 date = "2016-03-10T23:02:30Z"
 draft = false
 title = "Z80 Microcomputer"
+synopsis = "The retro-computing itch comes to us all."
 +++
 
 I've wanted a little Z80 microcomputer of my own for ages. I never learned to
