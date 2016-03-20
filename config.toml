@@ -1,4 +1,4 @@
-baseurl = "http://insom.github.io/"
+baseurl = "https://insom.github.io/"
 languageCode = "en-ie"
 title = "Shameless Self Promotion"
 canonifyurls = true
