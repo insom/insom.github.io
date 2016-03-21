@@ -13,15 +13,21 @@
     <li><a href="https://twitter.com/insom">twitter.com/insom</a> &ndash; my Twitter, 2007-2016</li>
     <li><a href="http://tilde.town/~insom">tilde.town/~insom</a> &ndash; my personal journal (Opinions my own), 2014-.</li>
 </ul>
-<h2>Projects</h2>
+<h2>Updates</h2>
 <main class="posts">
   <article class="post">
     {{ range (.Paginator 30).Pages }}
-    <blockquote>
-    <h3 style="display: inline"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-    &mdash;
-    {{ .Params.synopsis }}
-    </blockquote>
+        {{ if eq .Type "journal" }}
+        <blockquote style="padding-top: 2em; padding-bottom: 2em">
+        <h3>{{ .Date.Format "Jan 01, 2006" }} &mdash;</h3>
+        {{ .Content }}
+        </blockquote>
+        {{ else }}
+        <blockquote style="padding-top: 2em; padding-bottom: 2em">
+        <h3>{{ .Date.Format "Jan 01, 2006" }} &mdash; <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ .Params.synopsis }}
+        </blockquote>
+        {{ end }}
     {{ end }}
 
     {{ if .Paginator.HasNext }}
