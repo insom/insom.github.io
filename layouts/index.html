@@ -19,12 +19,12 @@
     {{ range (.Paginator 30).Pages }}
         {{ if eq .Type "journal" }}
         <blockquote style="padding-top: 2em; padding-bottom: 2em">
-        <h3>{{ .Date.Format "Jan 01, 2006" }} &mdash;</h3>
+        <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash;</h3>
         {{ .Content }}
         </blockquote>
         {{ else }}
         <blockquote style="padding-top: 2em; padding-bottom: 2em">
-        <h3>{{ .Date.Format "Jan 01, 2006" }} &mdash; <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash; <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
         {{ .Params.synopsis }}
         </blockquote>
         {{ end }}
