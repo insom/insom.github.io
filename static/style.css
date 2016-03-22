@@ -36,7 +36,11 @@ p, .p {
   margin-bottom: 32px;
 }
 
-li, code { font-size: 18px; }
+li { font-size: 18px; }
+
+code { font-size: 16px }
+
+pre code { font-size: 12px }
 
 .last-updated{ opacity: 0.7; margin-top: 2em }
 
@@ -47,7 +51,8 @@ li, code { font-size: 18px; }
   h1, .h1 { font-size: 48px; }
   h2, .h2 { font-size: 32px; }
   p, .p   { font-size: 24px; }
-  li, code   { font-size: 24px; }
+  li { font-size: 24px; }
+  code { font-size: 20px; }
 }
 
 a { color: #09c; text-decoration: none; }
