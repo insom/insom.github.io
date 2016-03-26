@@ -1,5 +1,5 @@
 +++
-date = "2016-03-25T21:02:30Z"
+date = "2016-03-26T21:12:30Z"
 draft = false
 title = "Z80 Microcomputer"
 synopsis = "The retro-computing itch comes to us all. Latest update: Not even Hello World."
@@ -58,3 +58,21 @@ the part itself was highly suspect, but you can see the original and the
 divided signal on the A and B channels of our oscilloscope:
 
 ![Oscilloscope Output](https://farm2.staticflickr.com/1711/25760704000_5d75097680_b.jpg)
+
+Learning to Count
+-----------------
+
+Blinking a light is the Hello World of hardware, but I'd gotten a logic
+analyser for Christmas (specifically for this project, really). It has 8
+inputs, which is more limiting than I originally expected, so I hooked up the
+lower seven pins to the address bus and a pin to /RD, with a trigger set.
+
+It looks beautiful at this point:
+
+![Analyser Hookups](https://farm2.staticflickr.com/1494/25760685190_e9645e76a6_b.jpg)
+
+But at least you can see it counting! I'm going to consider this as a program
+which is all `NOP` instructions is just another way for saying "incrementing
+`PC`".
+
+![Analyser Output](https://farm2.staticflickr.com/1589/25967148391_88909c7635_b.jpg)
