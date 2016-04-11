@@ -101,6 +101,11 @@ extra clearance. That part worked well too:
 
 ![With Hole](https://farm2.staticflickr.com/1603/25744292794_76fbb730b3_b.jpg)
 
+![CAD Hole](/img/piglow/boxer.png)
+
+(If your browser supports WebGL you can [spin the box around][s] courtesy of
+the GitHub STL viewer).
+
 I used a bit of hot glue (not pictured) to fix everything in place, and it's
 really firmly together. I'm genuinely pleased with this, even if it is *just*
 a box.
@@ -111,6 +116,10 @@ the posts broke right away. I decided that putting a lip in place would be
 better, but since deciding that haven't been able to get a successful print
 out of my 3D printer.
 
+![Top Piece](/img/piglow/top.png)
+
+[s]: https://github.com/insom/PiGlow-Trinket-Box/blob/master/3D/boxer.stl
+
 The white plastic I have is all ABS and more sensitive to print, and every
 time I try I've seen curling at the edges. It looks like my first print was a
 fluke. So, in the interests of wrapping things up while I figure out what's
@@ -119,6 +128,13 @@ the box. I sure hope I don't need to make any changes!
 
 ![Glued](https://farm2.staticflickr.com/1578/26076291080_f7e91c021e_b.jpg)
 
-Software and CAD drawings will follow shortly. (Annoyingly all my PCB design is
-done in Linux, by all my 123D stuff has to be done in Windows, so I need to
-switch drives to take the remaining shots and finish the firmware).
+The software is the final piece. You can view it [directly on GitHub][d]
+&mdash; in its current form it just sets random LEDs to random brightness
+levels, but that's actually pretty visually pleasing. I'll add support for
+serial control at a later date, when I get bored of mesmerising lights.
+
+[d]: https://github.com/insom/PiGlow-Trinket-Box/blob/master/Arduino/TrinketGlow.ino
+
+The whole project can be viewed and downloaded from [its GitHub repo][g].
+
+[g]: https://github.com/insom/PiGlow-Trinket-Box/
