@@ -1,5 +1,5 @@
 +++
-date = "2016-03-28T21:12:30Z"
+date = "2016-04-15T13:12:30Z"
 draft = false
 title = "Z80 Microcomputer"
 synopsis = "The retro-computing itch comes to us all. Latest update: Programming."
@@ -142,5 +142,29 @@ assembly for the next few programs, because it's easier for me to verify my
 programs and learn about the different addressing modes that the processor
 supports in assembly.
 
+Assembly
+--------
+
+The equivalent to the above C program is [this short commented Assembly
+listing][sh]. My first draft of address decoding hadn't worked, so I wanted to
+go back and check that even the `/IO` pin was being toggled in the way that I
+expected.
+
+I'd already found that hooking up my logic analyser was leading to weird
+results, so I opted to try my little single-channel kit oscilloscope:
+
+![Pulses](https://farm2.staticflickr.com/1591/26033429865_89016b98b6_b.jpg)
+
+So, 0.5ms apart when running at 125Khz, about 60 clock cycles per IO.
+
+This [listing with two IOs, one after another][l2] should show me how fast I
+can toggle the line, without any extra accesses or comparisons:
+
+![More Pulses](https://farm2.staticflickr.com/1448/25430914683_017dd00bfb_b.jpg)
+
+About 12 clock cycles per IO, or 10Khz.
+
 [fl]: https://github.com/insom/LittleComputer/blob/2b00e1a87da0f8c7fce4a137b793cf224114e7dc/C/helloc.c
 [bv]: https://github.com/insom/LittleComputer/blob/2b00e1a87da0f8c7fce4a137b793cf224114e7dc/Arduino/programmer2.ino
+[sh]: https://github.com/insom/LittleComputer/blob/master/ASM/IO-Test/iotest.asm
+[l2]: https://github.com/insom/LittleComputer/blob/master/ASM/IO-Test-Fast/iotest.asm
