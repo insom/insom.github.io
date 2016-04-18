@@ -1,8 +1,8 @@
 +++
-date = "2016-04-15T13:12:30Z"
+date = "2016-04-18T13:12:30Z"
 draft = false
 title = "Z80 Microcomputer"
-synopsis = "The retro-computing itch comes to us all. Latest update: Programming."
+synopsis = "The retro-computing itch comes to us all. Latest update: Address decoding."
 +++
 
 I've wanted a little Z80 microcomputer of my own for ages. I never learned to
@@ -168,3 +168,30 @@ About 12 clock cycles per IO, or 10Khz.
 [bv]: https://github.com/insom/LittleComputer/blob/2b00e1a87da0f8c7fce4a137b793cf224114e7dc/Arduino/programmer2.ino
 [sh]: https://github.com/insom/LittleComputer/blob/master/ASM/IO-Test/iotest.asm
 [l2]: https://github.com/insom/LittleComputer/blob/master/ASM/IO-Test-Fast/iotest.asm
+
+Address Decoding
+----------------
+
+It's clearly not great to have IO operations also twiddle bits of RAM.
+
+About the simplest decoding I can do is to join the `/CE` pin of the RAM to
+the `/MREQ` line of the processor, but even with this done I wasn't getting
+the results I expected.
+
+Most of this [was a software fix][fix]. I've changed the `/OE`, `/WE` and
+`/CE` lines to use the internal pull-up resistors (so I've removed the 1K's I
+put on the breadboard) and most importantly I'm de-asserting `/CE` with every
+call to `disownBus` - holding it low the whole time was the source of my
+problems.
+
+Now that is done,
+
+    0x50 00 00 00 00 00 A1 00 00  00 00 00 00 00 00 00 00  
+
+has become the much better
+
+    0x50 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  
+
+after the program has executed.
+
+[fix]: https://github.com/insom/LittleComputer/commit/23eed6f863597db5c3388b5f3c4e23921836a4f2
