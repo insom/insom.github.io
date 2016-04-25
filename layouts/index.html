@@ -17,15 +17,17 @@
 <main class="posts">
   <article class="post">
     {{ range (.Paginator 30).Pages }}
+    <hr>
         {{ if eq .Type "journal" }}
         <blockquote style="padding-top: 2em; padding-bottom: 2em">
-        <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash;</h3>
+        <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash; <a href="{{ .Permalink }}" style="opacity: 0.5">#</a></h3>
         {{ .Content }}
         </blockquote>
         {{ else }}
         <blockquote style="padding-top: 2em; padding-bottom: 2em">
         <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash; <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{ .Params.synopsis }}
+        <p>{{ .Params.synopsis }}</p>
+        <p><a style="font-style: italic" href="{{ .Permalink }}">Read more&hellip;</a></p>
         </blockquote>
         {{ end }}
     {{ end }}
