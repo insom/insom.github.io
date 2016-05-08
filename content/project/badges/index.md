@@ -1,8 +1,8 @@
 +++
-date = "2016-04-03T21:12:30Z"
+date = "2016-05-08T21:12:30Z"
 draft = false
 title = "Learn to Solder Badges"
-synopsis = "First experiences in schematic-less PCB Design"
+synopsis = "First experiences in schematic-less PCB Design. Latest update: Built the first kit"
 +++
 
 My wife went to the [Museum of Science and Industry][mosi] in March on a trip
@@ -144,9 +144,33 @@ because I haven't used someone else's footprint for the battery holder, and
 I'd like there to be at least a little wiggle room if my dimensions are off.
 
 I threw an OSHW logo on the solder mask and an AWDB on the silkscreen - there
-was so much empty space. I'll publish the gerbers and KiCad files once I know
-they work - I don't want anyone wasting their time making copies of a board
-that has flaws.
+was so much empty space. <strike>I'll publish the gerbers and KiCad files once
+I know they work - I don't want anyone wasting their time making copies of a
+board that has flaws.</strike>
 
-I'll be sure to update this project when the boards arrive - hopefully with
-some pictures of successful badge builds.
+*It all arrived!*
+
+![All the Pieces](https://farm8.staticflickr.com/7246/26898573025_53f5874de7_b.jpg)
+
+The bars, battery holders and switches arrived pretty fast. Even the boards
+arrived fairly quickly, unfortunately the most delayed item I ordered were the
+LEDs themselves &mdash; arguably the most interesting bits.
+
+The boards looked correct and the panelising that I did by hand worked fine
+too - they snapped right along the perferations that I had made without much
+force at all, but until the LEDs arrived I couldn't be 100% sure that I hadn't
+made some basic mistake with the circuit layout.
+
+Also, there was definitely a time when I thought I'd put my name on the
+silkscreen backwards, because I didn't trust the gerber viewer that I was
+using. Thankfully both my initials and the OSHW logo have come out the right
+way around.
+
+I soldered the first badge up quickly and it all works. Not a massive
+surprise; it's an amazingly basic circuit, but even basic things go wrong.
+
+![Finished Boards](https://farm8.staticflickr.com/7519/26294564823_658470e770_b.jpg)
+
+As promised, [the gerbers and PCB design are on GitHub][gh]
+
+[gh]: https://github.com/insom/learn-to-solder
