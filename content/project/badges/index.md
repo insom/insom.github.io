@@ -157,7 +157,7 @@ arrived fairly quickly, unfortunately the most delayed item I ordered were the
 LEDs themselves &mdash; arguably the most interesting bits.
 
 The boards looked correct and the panelising that I did by hand worked fine
-too - they snapped right along the perferations that I had made without much
+too - they snapped right along the perforations that I had made without much
 force at all, but until the LEDs arrived I couldn't be 100% sure that I hadn't
 made some basic mistake with the circuit layout.
 
