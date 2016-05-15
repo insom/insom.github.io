@@ -1,0 +1,20 @@
+{{ partial "head.html" . }}
+<h2>Projects</h2>
+<main class="posts">
+  <article class="post">
+    {{ range (.Paginator 30).Pages }}
+    <hr>
+        <blockquote style="padding-top: 2em; padding-bottom: 2em">
+        <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash; <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Params.synopsis }}</p>
+        <p><a style="font-style: italic" href="{{ .Permalink }}">Read more&hellip;</a></p>
+        </blockquote>
+    {{ end }}
+
+    {{ if .Paginator.HasNext }}
+    <a href="{{ .Paginator.Next.URL }}">Next</a>
+    {{ end }}
+
+  </article>
+</main>
+{{ partial "foot.html" . }}
