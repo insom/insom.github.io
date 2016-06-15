@@ -1,8 +1,8 @@
 +++
-date = "2016-04-18T13:12:30Z"
+date = "2016-06-15T23:12:30Z"
 draft = false
 title = "Z80 Microcomputer"
-synopsis = "The retro-computing itch comes to us all. Latest update: Address decoding."
+synopsis = "The retro-computing itch comes to us all. Latest update: Actual IO."
 +++
 
 I've wanted a little Z80 microcomputer of my own for ages. I never learned to
@@ -194,4 +194,52 @@ has become the much better
 
 after the program has executed.
 
+Actual IO
+---------
+
+<a name="actual"></a>
+To do anything remotely useful with this computer I'm going to need some IO. A
+UART would be ideal, but first things first, just some LEDs I can control from
+the Z80 would do.
+
+I'm going to skip past the abortive attempts that didn't work, using a 7475
+Quad Latch. What I *do* have working is a circuit with a 7404 and a 74HC374
+Octal Flip-Flop. I'm going to refer to this as a 'register' - that may not be
+100% correct, but you can only type flip-flop so many times before it becomes
+silly.
+
+I'm cheating with my address decoding again: as this is the only IO on the
+breadboard, I'm not actually decoding the address lines at all, I'm just
+triggering the register based on the `/IO` signal. I don't even decode `/WR` or
+`/RD` - so either IO operation would store the contents of the data bus.
+
+The data lines are hooked directly up to the D lines on the register. The clock
+signal for the 74HC374 is positive-edge triggered, but the `/IO` line is
+negative-edge triggered, so I pipe the `/IO` signal into one of the inverters
+in a 7404.
+
+Sidebar: I wasted a lot of time before finding out that one of the inverters in
+the 7404 is broken. Test your assumptions!
+
+![PulseView](/img/z80/logic.png)
+
+I hooked up the logic analyser to `D0`, `D1`, the divided down system clock,
+`/IO` and the `IO` output from the 7404. The `/IO` is labelled as `IO` in the
+picture, and the `IO` signal as `_IO`. Sorry!
+
+This is a successful capture of part of my [new blinking lights program][p]
+executing. You can see `_IO` rise periodically - when it does, the contents of
+`D0` and `D1` are copied to the `Q0` and `Q1` pins of the 74HC374. These are
+connected via LEDs to a resistor and then ground.
+
+![Board](https://c3.staticflickr.com/8/7443/27662083866_f452e1984f_b.jpg)
+
+This is the current state of the IO section of the board. The 7404 is up top,
+next to the unconnected 7475, with the 74HC374 in the middle. The LEDs are
+clearly visible, and the rainbow wires leading off to the logic analyser.
+
+I'm going to need some more gates to do sensible decoding, but this is
+basically enough to do bit-banged SPI. Milestone!
+
 [fix]: https://github.com/insom/LittleComputer/commit/23eed6f863597db5c3388b5f3c4e23921836a4f2
+[p]: https://github.com/insom/LittleComputer/blob/d1e3079c07656b3a98e27f5b5f59077300983fe9/ASM/Flasher/flasher.asm
