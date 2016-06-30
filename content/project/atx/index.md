@@ -1,5 +1,5 @@
 +++
-date = "2016-04-25T13:12:30Z"
+date = "2016-06-30T13:12:30Z"
 draft = false
 title = "attiny461-atx"
 synopsis = "An ATtiny461-based power supply controller, emulating ATX semantics"
@@ -25,6 +25,35 @@ The Makefile is from [Markus Conrad's project][p], and was invaluable for
 getting things up and running. I used a BusPirate for programming, though I've
 gotten a real AVR programmer in the mean time, so I'd like to revisit and
 finish this.
+
+<hr>
+
+**30th June 2016**
+
+Okay, there was some progress. [Due to programming woes, I ended up switching
+to using the ATtiny84.](https://insom.github.io/journal/2016/06/21/).
+
+The work is now the default branch on GitHub for this project. I've
+retrofitted Boo-the-Power-Supply to use this program, here's the first test:
+
+{{< youtube JctCwt6r1HY >}}
+
+ATX power supplies have a stand-by (`5VSB`) which provides 5V even when the
+computer is off. This is so that the motherboard, running something pretty
+similar to my code above, can have enough power to check if it needs to turn
+the full PSU on. That may be because of a button press, or an interrupt, or a
+timer - whatever.
+
+I've wired `VCC` on the tiny to `5VSB`. Ground to ground, which is also where
+the negative terminal of the lamp in the button is wired and to `C` terminal
+of the push button switch.
+
+The `NO` (normally open) terminal of the switch goes to `PB3`, and `PB4`
+connects to the green wire of the ATX connector (`PSON`) - it has the internal
+pull-ups enabled and will pull down when the conditions for enabling the PSU
+are met.
+
+![Inside](https://c3.staticflickr.com/8/7576/27718315530_62b64ae045_b.jpg)
 
 [p]: https://github.com/internaut/attiny-instructable/
 [gh]: https://github.com/insom/attiny461-atx
