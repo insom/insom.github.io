@@ -1,41 +1,27 @@
 {{ partial "head.html" . }}
-<hr>
-<p class="intrograph">
-    Welcome to my web page. I have others, but this is probably the one that
-    you're looking for. If it's not, you may be looking for
-    <a href="https://www.insom.me.uk/">my previous blog</a>,
-    <a href="http://tilde.town/~insom">my personal journal</a>,
-    <a href="https://github.com/insom">my GitHub</a>,
-    <a href="https://lanyrd.com/insom">my Lanyrd</a> or
-    <a href="https://uk.linkedin.com/in/aaronwbrady">my LinkedIn</a> profile.
-    If you're looking to communicate you might be looking for my 
-    <a href="https://keybase.io/insom">Keybase</a> or my 
-    <a href="https://twitter.com/insom">Twitter (it's @insom)</a>.
-</p>
-<hr>
-<h2>Updates</h2>
+{{ with .Site.Sections.project }}
+<h3>Projects</h3>
 <main class="posts">
   <article class="post">
-    {{ range (.Paginator 30).Pages }}
-    <hr>
-        {{ if eq .Type "journal" }}
-        <blockquote style="padding-top: 2em; padding-bottom: 2em">
-        <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash; <a href="{{ .Permalink }}" style="opacity: 0.5">#</a></h3>
-        {{ .Content }}
-        </blockquote>
-        {{ else }}
-        <blockquote style="padding-top: 2em; padding-bottom: 2em">
-        <h3>{{ .Date.Format "Mon, Jan 2, 2006" }} &mdash; <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Params.synopsis }}</p>
-        <p><a style="font-style: italic" href="{{ .Permalink }}">Read more&hellip;</a></p>
-        </blockquote>
-        {{ end }}
+    {{ range .Pages }}
+        <p><a style="font-weight:bold" href="{{ .Permalink }}">{{ .Title }}</a> <small class="feint">(updated {{ .Date.Format "January 2006" }})</small></p>
     {{ end }}
-
-    {{ if .Paginator.HasNext }}
-    <a href="{{ .Paginator.Next.URL }}">Next</a>
-    {{ end }}
-
   </article>
 </main>
+{{ end }}
+{{ with .Site.Sections.journal }}
+<h3>Journal</h3>
+<main class="posts">
+  <article class="post">
+    {{ range .Pages.GroupByDate "2006-01" }}
+    <h4>{{ .Key }}</h4>
+    <blockquote>
+    {{ range .Pages }}
+        <p><a style="font-weight:bold" href="{{ .Permalink }}">{{ .Title }}</a></p>
+    {{ end }}
+    </blockquote>
+    {{ end }}
+  </article>
+</main>
+{{ end }}
 {{ partial "foot.html" . }}
