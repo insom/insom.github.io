@@ -77,6 +77,6 @@ Because I have a local Graphite install, I can just send metrics to
 `127.0.0.1:2003` with a [tiny Ruby script][trs], which parses the serial output
 and spits Carbon formatted data over TCP to my Graphite install.
 
-Pictures and/or graphs to follow!
+![It's not cold ... yet](https://insm.cf/_/temperature.png)
 
 [trs]: https://github.com/insom/weather/blob/master/agent.rb
