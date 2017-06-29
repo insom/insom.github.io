@@ -1,7 +1,7 @@
 +++
 date = "2016-06-30T13:12:30Z"
 draft = false
-title = "attiny461-atx"
+title = "attiny461-atx PSU controller"
 synopsis = "An ATtiny461-based power supply controller, emulating ATX semantics"
 +++
 

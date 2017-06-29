@@ -1,7 +1,7 @@
 +++
 date = "2016-06-15T23:12:30Z"
 draft = false
-title = "Z80 Microcomputer"
+title = "Basic Z80 Microcomputer"
 synopsis = "The retro-computing itch comes to us all. Latest update: Actual IO."
 +++
 
@@ -99,7 +99,7 @@ out again - [you can see that here][here].
 
 [here]: https://github.com/insom/LittleComputer/blob/2b00e1a87da0f8c7fce4a137b793cf224114e7dc/Arduino/ram-excercise.ino
 
-The [better version][bv] actually responds to commands: 
+The [better version][bv] actually responds to commands:
 
 * (d)ump the contents of the bottom 256 bytes of RAM
 * (z)ero the RAM, for sanity
@@ -113,26 +113,26 @@ dump the RAM out.
 
 Here's the RAM after a triumphant run:
 
-    0x00 00 FF D3 55 D3 55 18 F8  55 14 7A D6 C8 38 F3 18  
-    0x10 EF 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  
+    0x00 00 FF D3 55 D3 55 18 F8  55 14 7A D6 C8 38 F3 18
+    0x10 EF 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
 
 That's the program itself.
 
-    0x20 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  
-    0x30 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  
-    0x40 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  
-    0x50 00 00 00 00 00 B1 00 00  00 00 00 00 00 00 00 00  
+    0x20 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+    0x30 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+    0x40 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
+    0x50 00 00 00 00 00 B1 00 00  00 00 00 00 00 00 00 00
 
 There's some data I wrote to IO 0x55. A little hiccup: because I haven't done
 any address decoding on this board yet, `OUT` instructions actually write RAM.
 
-    0x60 00 00 00 00 64 65 66 67  68 69 6A 6B 6C 6D 6E 6F  
-    0x70 70 71 72 73 74 75 76 77  78 79 7A 7B 7C 7D 7E 7F  
-    0x80 80 81 82 83 84 85 86 87  88 89 8A 8B 8C 8D 8E 8F  
-    0x90 90 91 92 93 94 95 96 97  98 99 9A 9B 9C 9D 9E 9F  
-    0xA0 A0 A1 A2 A3 A4 A5 A6 A7  A8 A9 AA AB AC AD AE AF  
-    0xB0 B0 B1 B2 B3 B4 B5 B6 B7  B8 B9 BA BB BC BD BE BF  
-    0xC0 C0 C1 C2 C3 C4 C5 C6 C7  00 00 00 00 00 00 00 00  
+    0x60 00 00 00 00 64 65 66 67  68 69 6A 6B 6C 6D 6E 6F
+    0x70 70 71 72 73 74 75 76 77  78 79 7A 7B 7C 7D 7E 7F
+    0x80 80 81 82 83 84 85 86 87  88 89 8A 8B 8C 8D 8E 8F
+    0x90 90 91 92 93 94 95 96 97  98 99 9A 9B 9C 9D 9E 9F
+    0xA0 A0 A1 A2 A3 A4 A5 A6 A7  A8 A9 AA AB AC AD AE AF
+    0xB0 B0 B1 B2 B3 B4 B5 B6 B7  B8 B9 BA BB BC BD BE BF
+    0xC0 C0 C1 C2 C3 C4 C5 C6 C7  00 00 00 00 00 00 00 00
 
 And here's a simple "write A to the memory location A" style effect: 0x64
 contains an 0x64 and so on.
@@ -186,11 +186,11 @@ problems.
 
 Now that is done,
 
-    0x50 00 00 00 00 00 A1 00 00  00 00 00 00 00 00 00 00  
+    0x50 00 00 00 00 00 A1 00 00  00 00 00 00 00 00 00 00
 
 has become the much better
 
-    0x50 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  
+    0x50 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00
 
 after the program has executed.
 

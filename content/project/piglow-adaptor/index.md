@@ -1,7 +1,7 @@
 +++
 date = "2016-04-10T17:12:30Z"
 draft = false
-title = "PiGlow Adaptor"
+title = "PiGlow to Adafruit Trinket Adaptor"
 synopsis = "Circuit, 3D and PCB design. Soldering, programming and printing. My first full-stack project."
 +++
 

@@ -1,0 +1,14 @@
+Blaster Side:
+
+1 3 5 7 9 = Black, White, Gray, Purple Blue
+2 4 6 8 10 = Green, Yellow, Orange, Red, Brown
+
+ARM Side:
+
+1 = Yellow
+5 = Blue
+7 = Grey
+9 = Black
+13 = White
+16 = Green
+18 = Brown

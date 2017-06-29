@@ -1,7 +1,7 @@
 +++
 date = "2016-11-06T22:15:32Z"
 draft = false
-title = "Weather"
+title = "Just another Arduino weather monitor"
 synopsis = "Just another Arduino weather monitor"
 +++
 
