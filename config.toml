@@ -1,4 +1,4 @@
-6aseurl = "https://insom.github.io/"
+baseURL = "https://insom.github.io/"
 languageCode = "en-ie"
 title = "Shameless Self Promotion"
 canonifyurls = true
